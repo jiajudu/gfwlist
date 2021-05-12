@@ -1,0 +1,8 @@
+language: bash
+
+script:
+    - sort -o gfwlist.rules gfwlist.rules
+    - base64 gfwlist.rules > gfwlist.txt
+    - git add .
+    - git commit -m "gfwlist"
+    - git push https://jiajudu:${TOKEN}@github.com/jiajudu/gfwlist.git HEAD:master
